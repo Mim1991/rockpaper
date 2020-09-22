@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        /*
+        create a variable for computer selection with 3 options
+        computer will randomly generate a choice of rock paper scissors
+        player will input their choice of rock paper or scissors
+        turn players input into all lower case 
+        */
+        function computerPlay() { 
+        let computerOption= ['Rock', 'Paper', 'Scissors'] //Three options for computer
+        return computerOption[Math.floor(Math.random()*computerOption.length)] //randomly select one of the options
+        }
+
+        let playerChoice = prompt("Choose Rock, Paper or Scissors") //ask the player what their selection is
+        let player = playerChoice.toLowerCase() //turn all input into lower case
+
+        //make 3 conditional statements  one for if player wins, draw, player loses
+        console.log(`Computer chose ${computerPlay()}`)
+        console.log(`You chose ${player}`)
+        
+        function game(playerSelection,computerSelection){
+            if ((player == "rock" && computerSelection == "Scissors") || (player == "paper" && computerSelection == "Rock") || (player == "scissors" && computerSelection == "Paper")){
+                console.log(`You won! ${player} beats ${computerSelection}`)
+            }
+            else if ((player == "rock" && computerSelection == "Rock") || (player == "paper" && computerSelection == "Paper") || (player == "scissors" && computerSelection == "Scissors")){
+                console.log(`It's a tie!`)
+            }
+            else if ((player == "rock" && computerSelection == "Paper") || (player == "paper" && computerSelection == "Scissors") || (player == "scissors" && computerSelection == "Rock")){
+                console.log(`You lose! ${computerSelection} beats ${player}`)
+            }
+            else {
+                console.log("You didn't choose Rock, Paper or Scissors!")
+            }
+        }
+        game(player, computerPlay())
+        //Create a loop where you play RPS 5 times 
+        
+    </script>
+</body>
+</html>
